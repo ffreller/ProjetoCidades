@@ -32,10 +32,15 @@ namespace ProjetoCidades.Controllers
             return View(lista);
         }
 
-         public IActionResult MenorCidade()
+        public IActionResult MenorCidade()
         {
             var lista = cidaderep.Listar().OrderByDescending(x => x.habitantes).Last();
             return View(lista);
+        }
+
+        public IActionResult Cadastrar()
+        {
+           return View();
         }
     }
 }

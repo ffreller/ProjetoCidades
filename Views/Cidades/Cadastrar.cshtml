@@ -1,0 +1,30 @@
+@model ProjetoCidades.Models.Cidade
+
+<div>
+    <h2>Cadastrar</h2>
+    <h4>Cidade</h4>
+    <hr>
+    <div class="row">
+        <div class="col.md-4">
+        <form asp-action="Cadastrar">
+            <div asp.validation.summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="nome" class="control-label"></label>
+                <input asp-for="nome" class="form-control"/>
+                <span asp-validation-for="nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="uf" class="control-label"></label>
+                <input asp-for="uf" class="form-control"/>
+                <span asp-validation-for="uf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="habitantes" class="control-label"></label>
+                <input asp-for="habitantes" class="form-control"/>
+                <span asp-validation-for="habitantes" class="text-danger"></span>
+            </div>
+        </form>
+        </div>
+        
+    </div>
+</div>
