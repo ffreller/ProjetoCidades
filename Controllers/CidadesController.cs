@@ -1,39 +1,40 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoCidades.Models;
+using ProjetoCidades.Repositorio;
 
 namespace ProjetoCidades.Controllers
 {
     public class CidadesController: Controller
     {
-        Cidade cidade = new Cidade();
+        CidadeRep cidaderep = new CidadeRep();
         public IActionResult Index()
         {
-            var lista = cidade.ListarCidades();
+            var lista = cidaderep.Listar();
             return View(lista);
         }
 
         public IActionResult CidadesEstados()
         {
-            var lista = cidade.ListarCidades();
+            var lista = cidaderep.Listar();
             return View(lista);
         }
 
         public IActionResult TodosDados()
         {
-            var lista = cidade.ListarCidades();
+            var lista = cidaderep.Listar();
             return View(lista);
         }
 
         public IActionResult MaiorCidade()
         {
-            var lista = cidade.ListarCidades().OrderByDescending(x => x.habitantes).First();
+            var lista = cidaderep.Listar().OrderByDescending(x => x.habitantes).First();
             return View(lista);
         }
 
          public IActionResult MenorCidade()
         {
-            var lista = cidade.ListarCidades().OrderByDescending(x => x.habitantes).Last();
+            var lista = cidaderep.Listar().OrderByDescending(x => x.habitantes).Last();
             return View(lista);
         }
     }

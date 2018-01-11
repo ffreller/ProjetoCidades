@@ -1,10 +1,41 @@
 @model IEnumerable<ProjetoCidades.Models.Cidade>
 <div>
-    <h2> Minhas Cidades</h2>
-    @{
-        foreach(var item in Model)
-        {
-            <li>@item.nome</li>
-        }
-    }
+    <h2>Minhas Cidades</h2>
+    <p>
+        <a asp-action="Cadastrar">Cadastrar Nova Cidade</a>
+    </p>
+
+    <table>
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>Cidade</th>
+                <th>UF</th>
+                <th>Habitantes</th>
+                <th></th>
+            </tr>
+        </thread>
+        <tbody>
+            @{
+                foreach(var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.id
+                        </td>
+                        <td>
+                            @item.nome
+                        </td>
+                        <td>
+                            @item.uf
+                        </td>
+                        <td>
+                            @item.habitantes
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    
 </div>
