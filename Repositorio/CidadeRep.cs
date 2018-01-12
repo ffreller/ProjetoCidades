@@ -33,7 +33,7 @@ namespace ProjetoCidades.Repositorio
         public void Cadastrar(Cidade cidade)
         {
             SqlConnection con = new SqlConnection(connectionstrig);
-            string insert = "INSERT INTO Cidades (nome, uf, habitantes) values('" + cidade.nome +"','" + cidade.uf + "','" + cidade.habitantes+")";
+            string insert = "INSERT INTO Cidades (nome, uf, habitantes) values('" + cidade.nome +"','" + cidade.uf + "'," + cidade.habitantes+")";
             SqlCommand cmd = new SqlCommand(insert, con);
             con.Open();
             cmd.ExecuteNonQuery();

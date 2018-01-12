@@ -38,9 +38,18 @@ namespace ProjetoCidades.Controllers
             return View(lista);
         }
 
+        [HttpGet]
         public IActionResult Cadastrar()
         {
-           return View();
+            return View();
         }
+
+        [HttpPost]
+        public IActionResult Cadastrar([Bind] Cidade cidade)
+        {
+            cidaderep.Cadastrar(cidade);
+            return RedirectToAction("Index");
+        }
+
     }
 }
