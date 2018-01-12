@@ -1,0 +1,43 @@
+@model ProjetoCidades.Models.Cidade
+<div>
+    <h2>Detalhes da Cidade</h2>
+    <p>
+        <a asp-action="Index">Todas as Cidades</a>
+    </p>
+
+    <table class = "table">
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>Cidade</th>
+                <th>UF</th>
+                <th>Habitantes</th>
+                <th></th>
+            </tr>
+        </thread>
+        <tbody>
+            @{
+                <tr>
+                    <td>
+                        @Model.id
+                    </td>
+                    <td>
+                        @Model.nome
+                    </td>
+                    <td>
+                        @Model.uf
+                    </td>
+                    <td>
+                        @Model.habitantes
+                    </td>
+                    <td>
+                        <a asp-action="Editar" asp-route-id= "@Model.id"> Editar</a>
+                        <a asp-action="Excluir" asp-route-id="@Model.id">Excluir</a>
+
+                    </td>
+                </tr>
+                
+            }
+        </tbody>
+    </table>
+</div>

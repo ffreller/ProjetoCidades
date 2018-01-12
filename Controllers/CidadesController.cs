@@ -71,6 +71,11 @@ namespace ProjetoCidades.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Detalhes(int? id)
+        {
+            var cidade = cidaderep.Listar().Where(x => x.id == id).FirstOrDefault();
+            return View(cidade);
+        }
     
 
     }
