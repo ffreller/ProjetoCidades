@@ -39,5 +39,27 @@ namespace ProjetoCidades.Repositorio
             cmd.ExecuteNonQuery();
             con.Close();
         }
+
+        public void Editar(Cidade cidade)
+        {
+            SqlConnection con = new SqlConnection(connectionstrig);
+            string update = string.Format("UPDATE Cidades SET nome='{0}', uf='{1}', habitantes={2} where id={3}", cidade.nome, cidade.uf, cidade.habitantes, cidade.id);
+            SqlCommand cmd = new SqlCommand(update, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public void Excluir(Cidade cidade)
+        {
+            SqlConnection con = new SqlConnection(connectionstrig);
+            string delete = string.Format("Delete from Cidades where id={0}", cidade.id);
+            SqlCommand cmd = new SqlCommand(delete, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        
     }
 }

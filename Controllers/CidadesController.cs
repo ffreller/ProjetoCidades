@@ -51,5 +51,27 @@ namespace ProjetoCidades.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult Editar(int? id)
+        {
+            Cidade cidade = cidaderep.Listar().Where(x => x.id == id).FirstOrDefault();
+            return View(cidade);
+        }
+
+        [HttpPost]
+        public IActionResult Editar([Bind] Cidade cidade)
+        {
+            cidaderep.Editar(cidade);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Excluir(Cidade cidade)
+        {
+            cidaderep.Excluir(cidade); 
+            return RedirectToAction("Index");
+        }
+
+    
+
     }
 }
